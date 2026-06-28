@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aryan Mehra — Photographer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --page:    #F8F6F2;
+  --ink:     #0C0C0C;
+  --ink-2:   #3a3a3a;
+  --muted:   #999999;
+  --rule:    #E0DDD8;
+  --gold:    #C9A96E;
+  --gold-lt: #F0E8D8;
+  --white:   #ffffff;
+  --serif:   'Cormorant Garant', Georgia, serif;
+  --sans:    'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 64px;
+  background: rgba(248,246,242,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.logo {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.logo em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+nav ul {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+
+nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav a:hover { color: var(--ink); }
+
+.nav-book {
+  border: 1px solid var(--ink) !important;
+  padding: 9px 22px !important;
+  border-radius: 1px !important;
+  color: var(--ink) !important;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-book:hover {
+  background: var(--ink) !important;
+  color: var(--white) !important;
+}
+
+/* ── HERO GRID ── */
+.hero {
+  padding-top: 64px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 52vh 48vh;
+  gap: 3px;
+}
+
+.hero-cell {
+  overflow: hidden;
+  position: relative;
+  background: #d0ccc8;
+}
+
+.hero-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  filter: saturate(0.88);
+}
+
+.hero-cell:hover img { transform: scale(1.04); }
+
+/* Featured cell spans 2 columns */
+.hero-cell--featured {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.hero-cell--tall {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+}
+
+/* Hero overlay text */
+.hero-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 48px 52px;
+  background: linear-gradient(to top, rgba(12,12,12,0.72) 0%, transparent 100%);
+  color: var(--white);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Small caption on a hero cell */
+.cell-caption {
+  position: absolute;
+  bottom: 16px;
+  right: 18px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--sans);
+}
+
+/* ── ABOUT ── */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.about-text {
+  padding: 100px 8% 100px 5%;
+  border-right: 1px solid var(--rule);
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+  display: block;
+}
+
+.about-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.about-text h2 em {
+  font-style: italic;
+}
+
+.about-text p {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 20px;
+}
+
+.about-signature {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink);
+  margin-top: 40px;
+  margin-bottom: 4px;
+}
+
+.about-sig-title {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+  background: #d8d4ce;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.85);
+}
+
+.about-stats {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.stat-box {
+  background: rgba(248,246,242,0.9);
+  backdrop-filter: blur(8px);
+  padding: 16px 22px;
+  text-align: right;
+  border: 1px solid rgba(201,169,110,0.3);
+}
+
+.stat-n {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.stat-l {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* ── PORTFOLIO ── */
+.portfolio {
+  padding: 100px 5%;
+  border-top: 1px solid var(--rule);
+}
+
+.portfolio-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.portfolio-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.portfolio-header h2 em { font-style: italic; }
+
+/* Filter tabs */
+.filter-tabs {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.filter-tab {
+  padding: 10px 22px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 400;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  border-right: 1px solid var(--rule);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: var(--sans);
+}
+
+.filter-tab:last-child { border-right: none; }
+
+.filter-tab.active,
+.filter-tab:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* Masonry-style portfolio grid */
+.portfolio-grid {
+  columns: 3;
+  column-gap: 12px;
+}
+
+.portfolio-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+  background: #d0ccc8;
+  cursor: pointer;
+}
+
+.portfolio-item img {
+  width: 100%;
+  display: block;
+  filter: saturate(0.85);
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+  filter: saturate(1);
+}
+
+.portfolio-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12,12,12,0);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  transition: background 0.4s;
+}
+
+.portfolio-item:hover .portfolio-item-overlay {
+  background: rgba(12,12,12,0.45);
+}
+
+.portfolio-item-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.portfolio-item-cat {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 4px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s 0.05s, transform 0.3s 0.05s;
+}
+
+.portfolio-item:hover .portfolio-item-title,
+.portfolio-item:hover .portfolio-item-cat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SERVICES ── */
+.services {
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.services-left {
+  padding: 100px 5%;
+  border-right: 1px solid var(--rule);
+  background: var(--ink);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.services-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 4vw, 58px);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.services-left h2 em { font-style: italic; color: var(--gold); }
+
+.services-left p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.8;
+  max-width: 300px;
+  margin-top: 24px;
+}
+
+.services-left-bottom {
+  margin-top: 64px;
+}
+
+.award-item {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 16px 0;
+}
+
+.award-title {
+  font-size: 13px;
+  color: var(--white);
+  font-weight: 400;
+}
+
+.award-body {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.services-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.service-card {
+  padding: 56px 48px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.2s;
+}
+
+.service-card:nth-child(2n) { border-right: none; }
+.service-card:nth-child(n+3) { border-bottom: none; }
+.service-card:hover { background: var(--gold-lt); }
+
+.service-num {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--rule);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.service-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.service-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.service-price {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+/* ── PROCESS ── */
+.process {
+  padding: 100px 5%;
+  border-top: 1px solid var(--rule);
+  background: var(--white);
+}
+
+.process h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 64px;
+  max-width: 500px;
+}
+
+.process h2 em { font-style: italic; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.process-step {
+  padding: 48px 40px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+
+.process-step:last-child { border-right: none; }
+
+.step-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 28px;
+}
+
+.step-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+
+.step-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials {
+  padding: 100px 5%;
+  border-top: 1px solid var(--rule);
+}
+
+.testimonials h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 60px;
+}
+
+.testimonials h2 em { font-style: italic; }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.testi-card {
+  padding: 52px 48px;
+  border-right: 1px solid var(--rule);
+  transition: background 0.2s;
+}
+
+.testi-card:last-child { border-right: none; }
+.testi-card:hover { background: var(--white); }
+
+.testi-quote {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 0.8;
+  margin-bottom: 24px;
+}
+
+.testi-text {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-2);
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+.testi-author {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.testi-role {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+  letter-spacing: 0.06em;
+}
+
+/* ── CONTACT / CTA ── */
+.contact {
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-left {
+  padding: 100px 5%;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.contact-left .eyebrow { color: var(--gold); }
+
+.contact-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 28px;
+}
+
+.contact-left h2 em { font-style: italic; color: var(--gold); }
+
+.contact-left p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.8;
+  max-width: 380px;
+  margin-bottom: 48px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 16px 40px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: #b8935a;
+  transform: translateY(-1px);
+}
+
+.contact-info {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+}
+
+.ci-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  min-width: 72px;
+  padding-top: 2px;
+}
+
+.ci-value {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+}
+
+.contact-right {
+  padding: 100px 5%;
+}
+
+.contact-right .eyebrow { margin-bottom: 36px; }
+
+.form-field {
+  margin-bottom: 28px;
+}
+
+.form-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0 14px;
+  font-size: 15px;
+  font-family: var(--sans);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-bottom-color: var(--gold);
+}
+
+.form-textarea { resize: vertical; min-height: 100px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: var(--white);
+  padding: 60px 5% 36px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.footer-logo {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer-logo em { font-style: normal; color: var(--gold); }
+
+.footer-tagline {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 8px;
+  letter-spacing: 0.06em;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 48px;
+}
+
+.footer-col-title {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 16px;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col li { margin-bottom: 10px; }
+
+.footer-col a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--white); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  flex-wrap: wrap;
+  gap: 12px;
+  letter-spacing: 0.06em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav ul { display: none; }
+  .hero { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  .hero-cell--featured { grid-column: 1 / 3; }
+  .hero-cell--tall { grid-column: 1 / 3; grid-row: auto; height: 50vw; }
+  .about, .contact { grid-template-columns: 1fr; }
+  .about-image { height: 60vw; }
+  .services { grid-template-columns: 1fr; }
+  .services-left { padding: 64px 5%; }
+  .services-right { grid-template-columns: 1fr; }
+  .service-card { border-right: none !important; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .process-step:nth-child(2) { border-right: none; }
+  .portfolio-grid { columns: 2; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testi-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .testi-card:last-child { border-bottom: none; }
+  .footer-links-group { gap: 28px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .portfolio-grid { columns: 1; }
+  .process-steps { grid-template-columns: 1fr; }
+  .process-step { border-right: none; border-bottom: 1px solid var(--rule); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Aryan <em>Mehra</em></a>
+  <ul>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-book">Book a Session</a></li>
+  </ul>
+</nav>
+
+<!-- HERO MOSAIC GRID -->
+<section class="hero" aria-label="Photography portfolio highlights">
+  <!-- Large feature image -->
+  <div class="hero-cell hero-cell--featured">
+    <img src="https://images.unsplash.com/photo-1520390138845-fd2d229dd553?w=1200&q=80" alt="Wedding ceremony — soft golden light" />
+    <div class="hero-overlay">
+      <div class="hero-eyebrow">Visual Storytelling Since 2012</div>
+      <h1 class="hero-title">Light.<br><em>Feeling.</em><br>Memory.</h1>
+    </div>
+  </div>
+  <!-- Tall side image -->
+  <div class="hero-cell hero-cell--tall">
+    <img src="https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=80" alt="Portrait — natural window light" />
+    <div class="cell-caption">Portrait</div>
+  </div>
+  <!-- Bottom row -->
+  <div class="hero-cell">
+    <img src="https://images.unsplash.com/photo-1504870712357-65ea720d6078?w=600&q=80" alt="Fashion editorial" />
+    <div class="cell-caption">Editorial</div>
+  </div>
+  <div class="hero-cell">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" alt="Wedding candid" />
+    <div class="cell-caption">Wedding</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-text">
+    <span class="eyebrow">The Photographer</span>
+    <h2>A decade of<br><em>earned moments</em></h2>
+    <p>I'm Aryan Mehra — a Delhi-based photographer specialising in weddings, portraits, and editorial work. I believe great photography isn't about capturing what's there. It's about revealing what's felt.</p>
+    <p>My approach is patient and unobtrusive. I work with available light wherever possible, and I never impose a mood the moment doesn't already have. The result is images that feel true.</p>
+    <div class="about-signature">Aryan Mehra</div>
+    <div class="about-sig-title">Photographer · Delhi, India</div>
+  </div>
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?w=900&q=80" alt="Aryan Mehra photographing" />
+    <div class="about-stats">
+      <div class="stat-box">
+        <div class="stat-n">350+</div>
+        <div class="stat-l">Sessions</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n">12</div>
+        <div class="stat-l">Years Active</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-n">18</div>
+        <div class="stat-l">Awards Won</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <span class="eyebrow">Selected Work</span>
+      <h2>Recent <em>Projects</em></h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active">All</button>
+      <button class="filter-tab">Wedding</button>
+      <button class="filter-tab">Portrait</button>
+      <button class="filter-tab">Editorial</button>
+      <button class="filter-tab">Commercial</button>
+    </div>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=75" alt="Wedding ceremony first dance" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">First Dance, Udaipur</div>
+        <div class="portfolio-item-cat">Wedding</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=75" alt="Portrait — woman in golden light" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">Golden Hour Series</div>
+        <div class="portfolio-item-cat">Portrait</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=75" alt="Fashion editorial shoot" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">Elle India — Spring</div>
+        <div class="portfolio-item-cat">Editorial</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?w=600&q=75" alt="Wedding vows moment" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">The Vow, Jaipur</div>
+        <div class="portfolio-item-cat">Wedding</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&q=75" alt="Commercial product photography" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">Brand Campaign — FabIndia</div>
+        <div class="portfolio-item-cat">Commercial</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75" alt="Male portrait — moody studio" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">Executive Portrait Series</div>
+        <div class="portfolio-item-cat">Portrait</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=75" alt="Wedding reception candid" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">Reception Night, Goa</div>
+        <div class="portfolio-item-cat">Wedding</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&q=75" alt="Street portrait" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">Delhi Streets Project</div>
+        <div class="portfolio-item-cat">Documentary</div>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=75" alt="Fashion editorial — outdoor" />
+      <div class="portfolio-item-overlay">
+        <div class="portfolio-item-title">Vogue India — Monsoon</div>
+        <div class="portfolio-item-cat">Editorial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="services-left">
+    <div>
+      <span class="eyebrow" style="color: var(--gold);">What I Offer</span>
+      <h2>Every session<br>is <em>crafted,</em><br>not shot.</h2>
+      <p>Each package is tailored to your specific vision. I work closely with you before, during, and after to ensure the final images are exactly what you imagined — and better.</p>
+    </div>
+    <div class="services-left-bottom">
+      <div class="award-item">
+        <div class="award-title">Wedding Photography Award</div>
+        <div class="award-body">India Wedding Industry Forum · 2023</div>
+      </div>
+      <div class="award-item">
+        <div class="award-title">Best Portrait Series</div>
+        <div class="award-body">Delhi Photo Festival · 2022</div>
+      </div>
+      <div class="award-item">
+        <div class="award-title">Featured in Vogue India</div>
+        <div class="award-body">3 cover shoots · 2021–2024</div>
+      </div>
+    </div>
+  </div>
+  <div class="services-right">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Wedding Photography</div>
+      <p class="service-desc">Full-day coverage of your wedding, from getting ready to the final dance. Candid, editorial, and formal styles blended naturally.</p>
+      <div class="service-price">Starting from ₹75,000</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Portrait Sessions</div>
+      <p class="service-desc">Individual, couple, or family portraits. Studio or outdoor, directed or candid. 2–3 hour sessions with full editing included.</p>
+      <div class="service-price">Starting from ₹12,000</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Editorial & Fashion</div>
+      <p class="service-desc">High-concept shoots for magazines, lookbooks, and campaigns. Art direction support available. Full commercial licensing.</p>
+      <div class="service-price">Starting from ₹35,000</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Commercial & Brand</div>
+      <p class="service-desc">Product photography, brand storytelling, and marketing content. Styled, lit, and delivered to agency specification.</p>
+      <div class="service-price">Starting from ₹20,000</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <span class="eyebrow">How It Works</span>
+  <h2>A simple,<br><em>thoughtful</em> process</h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-line"></div>
+      <div class="step-label">Step one</div>
+      <div class="step-title">Discovery Call</div>
+      <p class="step-desc">We talk through your vision, venue, timeline, and expectations. Free 30-minute consultation — no obligation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-line"></div>
+      <div class="step-label">Step two</div>
+      <div class="step-title">Planning & Booking</div>
+      <p class="step-desc">Finalise the package, sign a simple agreement, and secure your date with a 30% deposit. Everything confirmed in writing.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-line"></div>
+      <div class="step-label">Step three</div>
+      <div class="step-title">The Shoot</div>
+      <p class="step-desc">I arrive early, stay unobtrusive, and capture the day as it unfolds. My goal is that you forget I'm there.</p>
+    </div>
+    <div class="process-step" style="border-right: none;">
+      <div class="step-line"></div>
+      <div class="step-label">Step four</div>
+      <div class="step-title">Delivery</div>
+      <p class="step-desc">Fully edited images delivered via private gallery within 3–4 weeks. High-resolution files, yours to keep forever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <span class="eyebrow">Client Words</span>
+  <h2>What people<br><em>remember</em></h2>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Aryan made our wedding feel like a film. Not staged, not posed — just completely real and completely beautiful. Every image tells a story we didn't even notice happening.</p>
+      <div class="testi-author">Priya & Rahul Sharma</div>
+      <div class="testi-role">Wedding · Jaipur Palace · 2024</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The editorial he produced for our spring campaign was unlike anything we'd done before. He understood the brand intuitively and the shots delivered a 40% uplift in engagement.</p>
+      <div class="testi-author">Meghna Iyer</div>
+      <div class="testi-role">Creative Director · FabIndia</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I've had professional headshots before and hated them all. Aryan's portrait session was the first time I've seen a photo of myself and thought — yes, that's actually me.</p>
+      <div class="testi-author">Vikram Nair</div>
+      <div class="testi-role">Executive Portrait · Delhi · 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="contact-left">
+    <span class="eyebrow">Get in Touch</span>
+    <h2>Let's make<br>something <em>beautiful</em></h2>
+    <p>Whether it's a wedding next spring or a shoot next week — I'd love to hear about it. Most dates book 3–4 months ahead, so the sooner the better.</p>
+    <a href="mailto:hello@aryanmehra.com" class="btn-primary">Send an Email</a>
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <span class="ci-label">Email</span>
+        <span class="ci-value">hello@aryanmehra.com</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="ci-label">Phone</span>
+        <span class="ci-value">+91 98110 45672</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="ci-label">Based in</span>
+        <span class="ci-value">New Delhi, India<br>Available worldwide</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="ci-label">Response</span>
+        <span class="ci-value">Within 24 hours</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <span class="eyebrow">Send a Message</span>
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">Your name</label>
+        <input type="text" class="form-input" placeholder="Priya Sharma" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-input" placeholder="priya@email.com" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label">Type of session</label>
+        <input type="text" class="form-input" placeholder="Wedding, portrait, commercial…" />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Approximate date</label>
+        <input type="text" class="form-input" placeholder="Feb 2026" />
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="form-label">Tell me more</label>
+      <textarea class="form-textarea" placeholder="Share any details about the shoot, location, vision, or budget…"></textarea>
+    </div>
+    <button class="btn-primary" style="border: none; cursor: pointer;">Send Message</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#" class="footer-logo">Aryan <em>Mehra</em></a>
+      <div class="footer-tagline">Photographer · New Delhi · Est. 2012</div>
+    </div>
+    <div class="footer-links-group">
+      <div class="footer-col">
+        <div class="footer-col-title">Work</div>
+        <ul>
+          <li><a href="#">Weddings</a></li>
+          <li><a href="#">Portraits</a></li>
+          <li><a href="#">Editorial</a></li>
+          <li><a href="#">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Studio</div>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Process</a></li>
+          <li><a href="#">Book a Session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Follow</div>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Behance</a></li>
+          <li><a href="#">500px</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Aryan Mehra Photography. All rights reserved.</span>
+    <span>Privacy Policy · Licensing Terms</span>
+  </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.filter-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
